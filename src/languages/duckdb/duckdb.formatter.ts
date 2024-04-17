@@ -9,7 +9,9 @@ import { EOF_TOKEN, isToken, Token, TokenType } from '../../lexer/token.js';
 import { dataTypes, keywords } from './duckdb.keywords.js';
 import { functions } from './duckdb.functions.js';
 
-const reservedSelect = expandPhrases(['SELECT [ALL | DISTINCT]']);
+const reservedSelect = expandPhrases([
+  'SELECT [ALL | DISTINCT | EXCLUDE | REPLACE]',
+]);
 
 const reservedClauses = expandPhrases([
   'WITH',
@@ -60,6 +62,7 @@ const tabularOnelineClauses = expandPhrases([
   // Data Retrieval
   'TABLESAMPLE',
   'PIVOT',
+  'UNPIVOT',
   'TRANSFORM',
   'EXPLAIN',
   // Auxiliary
@@ -102,6 +105,10 @@ const reservedJoins = expandPhrases([
   // non-standard-joins
   '[LEFT] {ANTI | SEMI} JOIN',
   'NATURAL [LEFT] {ANTI | SEMI} JOIN',
+  // postional joins
+  'POSITIONAL JOIN',
+  // ASOF JOIN
+  'ASOF {LEFT} JOIN',
 ]);
 
 const reservedPhrases = expandPhrases([
