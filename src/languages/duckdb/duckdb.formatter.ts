@@ -14,22 +14,22 @@ const reservedSelect = expandPhrases([
 ]);
 
 const reservedClauses = expandPhrases([
-  'WITH',
-  'FROM',
-  'WHERE',
-  'GROUP BY',
-  'HAVING',
-  'WINDOW',
-  'PARTITION BY',
-  'ORDER BY',
-  'SORT BY',
   'CLUSTER BY',
   'DISTRIBUTE BY',
-  'LIMIT',
-  'INSERT [INTO | OVERWRITE] [TABLE]',
-  'VALUES',
+  'FROM',
+  'GROUP BY',
+  'HAVING',
   'INSERT OVERWRITE [LOCAL] DIRECTORY',
+  'INSERT [INTO | OVERWRITE] [TABLE]',
+  'LIMIT',
   'LOAD DATA [LOCAL] INPATH',
+  'ORDER BY',
+  'PARTITION BY',
+  'SORT BY',
+  'VALUES',
+  'WHERE',
+  'WINDOW',
+  'WITH',
   '[OVERWRITE] INTO TABLE',
 ]);
 
@@ -38,83 +38,74 @@ const standardOnelineClauses = expandPhrases([
 ]);
 
 const tabularOnelineClauses = expandPhrases([
-  // - create:
-  'CREATE [OR REPLACE] [GLOBAL TEMPORARY | TEMPORARY] VIEW [IF NOT EXISTS]',
-  // - drop table:
-  'DROP TABLE [IF EXISTS]',
-  // - alter table:
-  'ALTER TABLE',
   'ADD COLUMNS',
-  'DROP {COLUMN | COLUMNS}',
-  'RENAME TO',
-  'RENAME COLUMN',
-  'ALTER COLUMN',
-
-  // other
-  'ALTER VIEW',
-  'CREATE DATABASE',
-  'CREATE FUNCTION',
-  'DROP DATABASE',
-  'DROP FUNCTION',
-  'DROP VIEW',
-  'REPAIR TABLE',
-  'USE DATABASE',
-  // Data Retrieval
-  'TABLESAMPLE',
-  'PIVOT',
-  'UNPIVOT',
-  'TRANSFORM',
-  'EXPLAIN',
-  // Auxiliary
   'ADD FILE',
   'ADD JAR',
+  'ALTER COLUMN',
+  'ALTER TABLE',
+  'ALTER VIEW',
   'ANALYZE TABLE',
   'CACHE TABLE',
   'CLEAR CACHE',
+  'CREATE DATABASE',
+  'CREATE FUNCTION',
+  'CREATE [OR REPLACE] [GLOBAL TEMPORARY | TEMPORARY] VIEW [IF NOT EXISTS]',
   'DESCRIBE DATABASE',
   'DESCRIBE FUNCTION',
   'DESCRIBE QUERY',
   'DESCRIBE TABLE',
+  'DROP DATABASE',
+  'DROP FUNCTION',
+  'DROP TABLE [IF EXISTS]',
+  'DROP VIEW',
+  'DROP {COLUMN | COLUMNS}',
+  'EXPLAIN',
+  'INSTALL',
   'LIST FILE',
   'LIST JAR',
-  'REFRESH',
-  'REFRESH TABLE',
+  'PIVOT',
   'REFRESH FUNCTION',
+  'REFRESH TABLE',
+  'REFRESH',
+  'RENAME COLUMN',
+  'RENAME TO',
+  'REPAIR TABLE',
   'RESET',
   'SHOW COLUMNS',
   'SHOW CREATE TABLE',
   'SHOW DATABASES',
   'SHOW TABLES',
   'SHOW VIEWS',
+  'TABLESAMPLE',
+  'TRANSFORM',
   'UNCACHE TABLE',
+  'UNPIVOT',
+  'USE DATABASE',
 ]);
 
 // Looks good for duckdb
 const reservedSetOperations = expandPhrases([
-  'UNION [ALL | DISTINCT]',
   'EXCEPT [ALL | DISTINCT]',
   'INTERSECT [ALL | DISTINCT]',
+  'UNION [ALL | DISTINCT]',
 ]);
 
 const reservedJoins = expandPhrases([
-  'JOIN',
-  '{LEFT | RIGHT | FULL} [OUTER] JOIN',
-  '{INNER | CROSS} JOIN',
-  'NATURAL [INNER] JOIN',
-  'NATURAL {LEFT | RIGHT | FULL} [OUTER] JOIN',
-  // non-standard-joins
-  '[LEFT] {ANTI | SEMI} JOIN',
-  'NATURAL [LEFT] {ANTI | SEMI} JOIN',
-  // postional joins
-  'POSITIONAL JOIN',
-  // ASOF JOIN
   'ASOF {LEFT} JOIN',
+  'JOIN',
+  'NATURAL [INNER] JOIN',
+  'NATURAL [LEFT] {ANTI | SEMI} JOIN',
+  'NATURAL {LEFT | RIGHT | FULL} [OUTER] JOIN',
+  'POSITIONAL JOIN',
+  '[LEFT] {ANTI | SEMI} JOIN',
+  '{INNER | CROSS} JOIN',
+  '{LEFT | RIGHT | FULL} [OUTER] JOIN',
 ]);
 
 const reservedPhrases = expandPhrases([
+  'CURRENT ROW',
   'ON DELETE',
   'ON UPDATE',
-  'CURRENT ROW',
   '{ROWS | RANGE} BETWEEN',
 ]);
 
